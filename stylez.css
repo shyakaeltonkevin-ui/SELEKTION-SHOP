@@ -739,3 +739,31 @@ footer .copyright {
 }
 
 
+/* ---------- Main logo sizing ---------- */
+.logo {
+    max-width: 180px;        /* ← Change this number to make logo bigger/smaller */
+    height: auto;            /* Keeps the aspect ratio perfect */
+    display: block;          /* Removes extra bottom spacing */
+    margin-right: 20px;      /* Gives breathing room between logo and nav links */
+}
+
+/* ---------- Tablet screens (under 1024px) ---------- */
+@media (max-width: 1024px) {
+    .logo {
+        max-width: 150px;
+    }
+}
+
+/* ---------- Mobile/Tablet breakpoint (under 799px) ---------- */
+@media (max-width: 799px) {
+    .logo {
+        max-width: 130px;
+    }
+}
+
+/* ---------- Small phones (under 477px) ---------- */
+@media (max-width: 477px) {
+    .logo {
+        max-width: 100px;
+    }
+}
