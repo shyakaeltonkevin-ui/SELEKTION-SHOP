@@ -150,37 +150,38 @@ if (modal && openBtn && closeBtn && form && submitBtn) {
     // And initialized it with your public key:
     // <script>emailjs.init("YOUR_PUBLIC_KEY");</script>
     form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
-        const name = document.getElementById('devName').value;
-        const email = document.getElementById('devEmail').value;
-        const message = document.getElementById('devMessage').value;
+    const name = document.getElementById('devName').value;
+    const email = document.getElementById('devEmail').value;
+    const message = document.getElementById('devMessage').value;
 
-        const templateParams = {
-            from_name: name,
-            from_email: email,
-            message: message,
-            to_email: 'kevinelton34@gmail.com' // <-- change to your email
-        };
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_email: 'kevinelton34@gmail.com'
+    };
 
-        emailjs.send('service_nn38yk5selktion', 'template_6hen6as', templateParams)
-            .then(() => {
-                showNotification('✅ Message sent successfully! We\'ll get back to you shortly.');
-                setTimeout(() => {
-                    modal.classList.remove('show');
-                    resetForm();
-                }, 3000);
-            })
-            .catch((error) => {
-                console.error('EmailJS error:', error);
-                showNotification('❌ Failed to send. Please try again.', '#ef4444');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit';
-            });
-    });
+    // ✅ FIXED: Pass templateParams as the third argument
+    emailjs.send('service_nn38yk5selktion', 'template_6hen6as', templateParams)
+        .then(() => {
+            showNotification('✅ Message sent successfully! We\'ll get back to you shortly.');
+            setTimeout(() => {
+                modal.classList.remove('show');
+                resetForm();
+            }, 3000);
+        })
+        .catch((error) => {
+            console.error('EmailJS error:', error);
+            showNotification('❌ Failed to send. Please try again.', '#ef4444');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit';
+        });
+});
 
     // ── 🟡 ALTERNATIVE: Formspree (comment out EmailJS above, uncomment this) ──
     /*
