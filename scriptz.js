@@ -166,7 +166,7 @@ if (modal && openBtn && closeBtn && form && submitBtn) {
             to_email: 'kevinelton34@gmail.com' // <-- change to your email
         };
 
-        emailjs.send('service_nn38yk5selktion', 'template_6hen6as')
+        emailjs.send('service_nn38yk5selktion', 'template_6hen6as', templateParams)
             .then(() => {
                 showNotification('✅ Message sent successfully! We\'ll get back to you shortly.');
                 setTimeout(() => {
