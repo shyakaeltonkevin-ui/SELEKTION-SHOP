@@ -740,7 +740,7 @@ footer .copyright {
 
 
 /* ---------- Main logo sizing ---------- */
-.logo {
+#logo {
     max-width: 1OOpx;        /* ← Change this number to make logo bigger/smaller */
     height: auto;            /* Keeps the aspect ratio perfect */
     display: block;          /* Removes extra bottom spacing */
