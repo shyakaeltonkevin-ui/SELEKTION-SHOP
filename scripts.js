@@ -1,6 +1,5 @@
-// ============================================
 // MOBILE MENU TOGGLE
-// ============================================
+
 const bar = document.getElementById('bar');
 const close = document.getElementById('close');
 const nav = document.getElementById('navbar');
@@ -18,9 +17,8 @@ if (close) {
 }
 
 
-// ============================================
 // TOAST NOTIFICATIONS
-// ============================================
+
 function showNotification(message, type = 'success') {
     // Create container if it doesn't exist
     let container = document.querySelector('.toast-container');
@@ -89,11 +87,8 @@ function removeToast(toast) {
 }
 
 
-// ============================================
 // CART FUNCTIONALITY
-// ============================================
 
-// ---------- Helper: Add product to cart ----------
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -137,7 +132,7 @@ if (addToCartBtn) {
 }
 
 
-// ---------- 2. Handle cart icons on product cards (indexs.html, shops.html, etc.) ----------
+// ---------- 2. Handle cart icons on product cards (index.html, shops.html, etc.) ----------
 document.addEventListener('click', function (e) {
     let target = e.target.closest('.cart');
     if (!target) return;
@@ -150,7 +145,7 @@ document.addEventListener('click', function (e) {
     const name = pro.querySelector('.des h5')?.innerText || 'Product';
     const priceText = pro.querySelector('.des h4')?.innerText || '0';
     const price = parseFloat(priceText.replace(/[$,€]/g, '').trim()) || 0;
-    const imageSrc = img ? img.src : 'imgs/placeholder.jpg';
+    const imageSrc = img ? img.src: 'imgs/placeholder.jpg';
 
     e.preventDefault();
 
@@ -368,7 +363,7 @@ if (document.querySelector('#checkout')) {
             // Redirect after 2.5 seconds
             setTimeout(() => {
                 // Redirect to home page or a thank you page
-                window.location.href = 'indexs.html';
+                window.location.href = 'index.html';
                 // OR if you have a thanks.html: window.location.href = 'thanks.html';
             }, 2500);
         });
